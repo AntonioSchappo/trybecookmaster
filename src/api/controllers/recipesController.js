@@ -8,6 +8,12 @@ const create = async (req, res) => {
     return res.status(statusCode).json(newRecipe);
 };
 
+const getAll = async (_req, res) => {
+    const result = await Recipe.getAll();
+    return res.status(200).json(result);
+};
+
 module.exports = {
     create,
+    getAll,
 };

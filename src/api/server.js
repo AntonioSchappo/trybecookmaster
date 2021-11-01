@@ -10,6 +10,8 @@ const Recipe = require('./controllers/recipesController');
 
 const PORT = 3000;
 
+app.get('/recipes', Recipe.getAll);
+
 app.post('/users', User.create);
 app.post('/login', Login.logUser);
 app.post('/recipes', validateJWT, Recipe.create);
