@@ -11,6 +11,7 @@ const Recipe = require('./controllers/recipesController');
 const PORT = 3000;
 
 app.get('/recipes', Recipe.getAll);
+app.get('/recipes/:id', Recipe.getById);
 
 app.post('/users', User.create);
 app.post('/login', Login.logUser);
