@@ -15,8 +15,6 @@ const create = async ({ name, email, password }) => {
 
     const newUser = await User.create(name, email, password);
 
-    console.log(newUser);
-
     return { statusCode: 201, newUser };
 };
 

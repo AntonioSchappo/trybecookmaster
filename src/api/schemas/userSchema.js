@@ -17,4 +17,6 @@ const isValid = (name, email, password) => {
 
 module.exports = {
     isValid,
+    statusCode,
+    message,
 };

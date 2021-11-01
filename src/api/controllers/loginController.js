@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/usersModel');
-const { isValid, statusCode, messages } = require('../schemas/loginSchema');
-
-const secret = process.env.SECRET || 'somethingForTheEvaluator';
+const { isValid, statusCode, messages, secret } = require('../schemas/loginSchema');
 
 const jwtConfig = {
     expiresIn: '7d',
