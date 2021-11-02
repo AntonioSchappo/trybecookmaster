@@ -6,7 +6,6 @@ const create = async (req, res) => {
     const userId = _id;
     const { message, statusCode, newRecipe } = await Recipe.create(recipe, userId);
     if (message) return res.status(statusCode).json({ message });
-    console.log(req.user);
     return res.status(statusCode).json(newRecipe);
 };
 
@@ -24,8 +23,16 @@ const getById = async (req, res) => {
     return res.status(200).json({ _id, name, ingredients, preparation, userId });
 };
 
+const update = async (req, res) => {
+    const { id } = req.params;
+    const recipe = req.body;
+    const updatedRecipe = await Recipe.update(id, recipe);
+    return res.status(200).json(updatedRecipe);
+};
+
 module.exports = {
     create,
     getAll,
     getById,
+    update,
 };
