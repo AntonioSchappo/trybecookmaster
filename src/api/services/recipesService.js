@@ -26,9 +26,14 @@ const update = async (id, recipe) => {
     return result;
 };
 
+const remove = async (id) => {
+    await Recipe.remove(id);
+};
+
 module.exports = {
     create,
     getAll,
     getById,
     update,
+    remove,
 };

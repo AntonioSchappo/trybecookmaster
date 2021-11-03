@@ -15,6 +15,8 @@ app.get('/recipes/:id', Recipe.getById);
 
 app.put('/recipes/:id', validateJWT, Recipe.update);
 
+app.delete('/recipes/:id', validateJWT, Recipe.remove);
+
 app.post('/users', User.create);
 app.post('/login', Login.logUser);
 app.post('/recipes', validateJWT, Recipe.create);
