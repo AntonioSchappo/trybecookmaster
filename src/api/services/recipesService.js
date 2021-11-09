@@ -30,10 +30,16 @@ const remove = async (id) => {
     await Recipe.remove(id);
 };
 
+const postImage = async (id) => {
+    const result = await Recipe.postImage(id);
+    return result;
+};
+
 module.exports = {
     create,
     getAll,
     getById,
     update,
     remove,
+    postImage,
 };

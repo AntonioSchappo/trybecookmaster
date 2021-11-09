@@ -36,10 +36,18 @@ const remove = async (req, res) => {
     return res.status(204).end();
 };
 
+const postImage = async (req, res) => {
+    console.log(req.file);
+    const { id } = req.params;
+    const result = await Recipe.postImage(id);
+    return res.status(200).json(result);
+};
+
 module.exports = {
     create,
     getAll,
     getById,
     update,
     remove,
+    postImage,
 };
