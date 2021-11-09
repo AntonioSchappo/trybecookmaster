@@ -16,7 +16,8 @@ const storage = multer.diskStorage({
     filename: (req, file, cb) => {
         const { id } = req.params;
       cb(null, id);
-    } });
+    },
+  });
 
 const upload = multer({ storage });
 
