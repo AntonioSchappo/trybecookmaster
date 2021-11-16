@@ -1,4 +1,5 @@
 const multer = require('multer');
+const path = require('path');
 const app = require('./app');
 
 const { validateJWT } = require('./schemas/loginSchema');
@@ -9,13 +10,15 @@ const Login = require('./controllers/loginController');
 
 const Recipe = require('./controllers/recipesController');
 
+const directory = path.join(__dirname, '..', 'uploads');
+
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, 'uploads');
+      cb(null, directory);
     },
     filename: (req, file, cb) => {
         const { id } = req.params;
-      cb(null, id);
+      cb(null, `${id}.jpeg`);
     },
   });
 
