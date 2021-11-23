@@ -1,4 +1,5 @@
 const multer = require('multer');
+const express = require('express');
 const path = require('path');
 const app = require('./app');
 
@@ -28,6 +29,7 @@ const PORT = 3000;
 
 app.get('/recipes', Recipe.getAll);
 app.get('/recipes/:id', Recipe.getById);
+app.use('/images', express.static(path.join(__dirname, '..', 'uploads')));
 
 app.put('/recipes/:id', validateJWT, Recipe.update);
 
